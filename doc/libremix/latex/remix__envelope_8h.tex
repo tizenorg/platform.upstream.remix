@@ -1,0 +1,149 @@
+\section{remix\_\-envelope.h File Reference}
+\label{remix__envelope_8h}\index{remix\_\-envelope.h@{remix\_\-envelope.h}}
+
+
+Base types and public interfaces to libremix.  
+
+
+{\ttfamily \#include $<$remix/remix\_\-types.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf RemixEnvelope} $\ast$ {\bf remix\_\-envelope\_\-new} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelopeType} type)
+\item 
+{\bf RemixEnvelopeType} {\bf remix\_\-envelope\_\-set\_\-type} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope, {\bf RemixEnvelopeType} type)
+\item 
+{\bf RemixEnvelopeType} {\bf remix\_\-envelope\_\-get\_\-type} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope)
+\item 
+{\bf RemixTimeType} {\bf remix\_\-envelope\_\-set\_\-timetype} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope, {\bf RemixTimeType} timetype)
+\item 
+{\bf RemixTimeType} {\bf remix\_\-envelope\_\-get\_\-timetype} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope)
+\item 
+{\bf RemixPCM} {\bf remix\_\-envelope\_\-get\_\-value} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope, {\bf RemixTime} time)
+\item 
+{\bf RemixTime} {\bf remix\_\-envelope\_\-get\_\-duration} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope)
+\item 
+{\bf RemixPCM} {\bf remix\_\-envelope\_\-get\_\-integral} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+{\bf RemixPoint} $\ast$ {\bf remix\_\-envelope\_\-add\_\-point} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope, {\bf RemixTime} time, {\bf RemixPCM} value)
+\item 
+{\bf RemixEnvelope} $\ast$ {\bf remix\_\-envelope\_\-remove\_\-point} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope, {\bf RemixPoint} $\ast$point)
+\item 
+{\bf RemixEnvelope} $\ast$ {\bf remix\_\-envelope\_\-scale} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope, {\bf RemixPCM} gain)
+\item 
+{\bf RemixEnvelope} $\ast$ {\bf remix\_\-envelope\_\-shift} ({\bf RemixEnv} $\ast$env, {\bf RemixEnvelope} $\ast$envelope, {\bf RemixTime} delta)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base types and public interfaces to libremix. The information describing how a parameter changes over time appears as a generic data source.
+
+In order to create this mix automation information Remix provides linear and spline envelopes. However, parameters could alternatively be controlled by other means such as from a recording of physical slider values, from a sine wave generator, or from a deck constructed solely to generate interesting parameter values. 
+
+\subsection{Function Documentation}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-add\_\-point@{remix\_\-envelope\_\-add\_\-point}}
+\index{remix\_\-envelope\_\-add\_\-point@{remix\_\-envelope\_\-add\_\-point}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-add\_\-point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixPoint}$\ast$ remix\_\-envelope\_\-add\_\-point (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope, }
+\item[{{\bf RemixTime}}]{ time, }
+\item[{{\bf RemixPCM}}]{ value}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a379bd8571db2effaca55dc72fc31d215}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-get\_\-duration@{remix\_\-envelope\_\-get\_\-duration}}
+\index{remix\_\-envelope\_\-get\_\-duration@{remix\_\-envelope\_\-get\_\-duration}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-get\_\-duration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-envelope\_\-get\_\-duration (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a27dc46c082f5077a3f36769013b5ae93}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-get\_\-integral@{remix\_\-envelope\_\-get\_\-integral}}
+\index{remix\_\-envelope\_\-get\_\-integral@{remix\_\-envelope\_\-get\_\-integral}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-get\_\-integral}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixPCM} remix\_\-envelope\_\-get\_\-integral (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a555c501b2de4cce1ca1129254ce24548}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-get\_\-timetype@{remix\_\-envelope\_\-get\_\-timetype}}
+\index{remix\_\-envelope\_\-get\_\-timetype@{remix\_\-envelope\_\-get\_\-timetype}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-get\_\-timetype}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTimeType} remix\_\-envelope\_\-get\_\-timetype (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a0d935770b9ec660603a4467c59b196c5}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-get\_\-type@{remix\_\-envelope\_\-get\_\-type}}
+\index{remix\_\-envelope\_\-get\_\-type@{remix\_\-envelope\_\-get\_\-type}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-get\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixEnvelopeType} remix\_\-envelope\_\-get\_\-type (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a95679eadbad4f5a6e358f3b985cafc58}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-get\_\-value@{remix\_\-envelope\_\-get\_\-value}}
+\index{remix\_\-envelope\_\-get\_\-value@{remix\_\-envelope\_\-get\_\-value}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-get\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixPCM} remix\_\-envelope\_\-get\_\-value (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope, }
+\item[{{\bf RemixTime}}]{ time}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a214ada14a86c25a23608dd32e1f5995e}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-new@{remix\_\-envelope\_\-new}}
+\index{remix\_\-envelope\_\-new@{remix\_\-envelope\_\-new}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixEnvelope}$\ast$ remix\_\-envelope\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelopeType}}]{ type}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a7a0dee18419476159f7f53cb4daa9c78}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-remove\_\-point@{remix\_\-envelope\_\-remove\_\-point}}
+\index{remix\_\-envelope\_\-remove\_\-point@{remix\_\-envelope\_\-remove\_\-point}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-remove\_\-point}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixEnvelope}$\ast$ remix\_\-envelope\_\-remove\_\-point (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope, }
+\item[{{\bf RemixPoint} $\ast$}]{ point}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_adf711e4423fab376f05bfbdb364f33a3}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-scale@{remix\_\-envelope\_\-scale}}
+\index{remix\_\-envelope\_\-scale@{remix\_\-envelope\_\-scale}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-scale}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixEnvelope}$\ast$ remix\_\-envelope\_\-scale (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope, }
+\item[{{\bf RemixPCM}}]{ gain}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_aefe42007ab6eb7130541c967e8f4656e}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-set\_\-timetype@{remix\_\-envelope\_\-set\_\-timetype}}
+\index{remix\_\-envelope\_\-set\_\-timetype@{remix\_\-envelope\_\-set\_\-timetype}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-set\_\-timetype}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTimeType} remix\_\-envelope\_\-set\_\-timetype (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope, }
+\item[{{\bf RemixTimeType}}]{ timetype}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a34a0cc3c45d76875aa9187993de06a4e}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-set\_\-type@{remix\_\-envelope\_\-set\_\-type}}
+\index{remix\_\-envelope\_\-set\_\-type@{remix\_\-envelope\_\-set\_\-type}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-set\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixEnvelopeType} remix\_\-envelope\_\-set\_\-type (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope, }
+\item[{{\bf RemixEnvelopeType}}]{ type}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a741a183e653e2aa3452691eb53ae8bf1}
+\index{remix\_\-envelope.h@{remix\_\-envelope.h}!remix\_\-envelope\_\-shift@{remix\_\-envelope\_\-shift}}
+\index{remix\_\-envelope\_\-shift@{remix\_\-envelope\_\-shift}!remix_envelope.h@{remix\_\-envelope.h}}
+\subsubsection[{remix\_\-envelope\_\-shift}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixEnvelope}$\ast$ remix\_\-envelope\_\-shift (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixEnvelope} $\ast$}]{ envelope, }
+\item[{{\bf RemixTime}}]{ delta}
+\end{DoxyParamCaption}
+)}\label{remix__envelope_8h_a71e4a4e6bd86053220d5b0b72a551840}

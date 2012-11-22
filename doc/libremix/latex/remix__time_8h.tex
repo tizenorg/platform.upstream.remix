@@ -1,0 +1,156 @@
+\section{remix\_\-time.h File Reference}
+\label{remix__time_8h}\index{remix\_\-time.h@{remix\_\-time.h}}
+
+
+Base types and public interfaces to libremix.  
+
+
+{\ttfamily \#include $<$remix/remix\_\-types.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf RemixTime} {\bf remix\_\-time\_\-convert} ({\bf RemixEnv} $\ast$env, {\bf RemixTime} time, {\bf RemixTimeType} old\_\-type, {\bf RemixTimeType} new\_\-type)
+\item 
+{\bf RemixTime} {\bf remix\_\-time\_\-zero} ({\bf RemixTimeType} type)
+\item 
+{\bf RemixTime} {\bf remix\_\-time\_\-invalid} ({\bf RemixTimeType} type)
+\item 
+int {\bf remix\_\-time\_\-is\_\-invalid} ({\bf RemixTimeType} type, {\bf RemixTime} time)
+\item 
+{\bf RemixTime} {\bf remix\_\-time\_\-add} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+{\bf RemixTime} {\bf remix\_\-time\_\-sub} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+{\bf RemixTime} {\bf remix\_\-time\_\-min} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+{\bf RemixTime} {\bf remix\_\-time\_\-max} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+int {\bf remix\_\-time\_\-eq} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+int {\bf remix\_\-time\_\-gt} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+int {\bf remix\_\-time\_\-lt} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+int {\bf remix\_\-time\_\-ge} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\item 
+int {\bf remix\_\-time\_\-le} ({\bf RemixTimeType} type, {\bf RemixTime} t1, {\bf RemixTime} t2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base types and public interfaces to libremix. 
+
+\subsection{Function Documentation}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-add@{remix\_\-time\_\-add}}
+\index{remix\_\-time\_\-add@{remix\_\-time\_\-add}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-time\_\-add (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_aee5fdeefd17f33c7174dfad48030d974}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-convert@{remix\_\-time\_\-convert}}
+\index{remix\_\-time\_\-convert@{remix\_\-time\_\-convert}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-convert}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-time\_\-convert (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTime}}]{ time, }
+\item[{{\bf RemixTimeType}}]{ old\_\-type, }
+\item[{{\bf RemixTimeType}}]{ new\_\-type}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a5645a4409f6b788e707674821d82861b}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-eq@{remix\_\-time\_\-eq}}
+\index{remix\_\-time\_\-eq@{remix\_\-time\_\-eq}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-eq}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-time\_\-eq (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a6f9a92227371b2e2dff17a5ad84641ac}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-ge@{remix\_\-time\_\-ge}}
+\index{remix\_\-time\_\-ge@{remix\_\-time\_\-ge}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-ge}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-time\_\-ge (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a76ed0f07ead40a6a642d8eed8864d1bb}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-gt@{remix\_\-time\_\-gt}}
+\index{remix\_\-time\_\-gt@{remix\_\-time\_\-gt}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-gt}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-time\_\-gt (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a8dcdf111aa984f7077051e88f53da0a0}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-invalid@{remix\_\-time\_\-invalid}}
+\index{remix\_\-time\_\-invalid@{remix\_\-time\_\-invalid}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-invalid}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-time\_\-invalid (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a7b75c5cbb7fe3b78bd3cebe4f46b04ad}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-is\_\-invalid@{remix\_\-time\_\-is\_\-invalid}}
+\index{remix\_\-time\_\-is\_\-invalid@{remix\_\-time\_\-is\_\-invalid}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-is\_\-invalid}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-time\_\-is\_\-invalid (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ time}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a77389f34f3852a0764b5b3b90ded7f91}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-le@{remix\_\-time\_\-le}}
+\index{remix\_\-time\_\-le@{remix\_\-time\_\-le}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-le}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-time\_\-le (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a9a894e7dcede9c462a92b4d32b382039}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-lt@{remix\_\-time\_\-lt}}
+\index{remix\_\-time\_\-lt@{remix\_\-time\_\-lt}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-lt}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-time\_\-lt (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a50c33f255ff7479f016622cfd1ac95f1}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-max@{remix\_\-time\_\-max}}
+\index{remix\_\-time\_\-max@{remix\_\-time\_\-max}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-time\_\-max (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a165588cfdbfd354fc042fc9dff005de5}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-min@{remix\_\-time\_\-min}}
+\index{remix\_\-time\_\-min@{remix\_\-time\_\-min}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-min}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-time\_\-min (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_ace7be115e37cc1b56d5def1421539bf2}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-sub@{remix\_\-time\_\-sub}}
+\index{remix\_\-time\_\-sub@{remix\_\-time\_\-sub}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-sub}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-time\_\-sub (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type, }
+\item[{{\bf RemixTime}}]{ t1, }
+\item[{{\bf RemixTime}}]{ t2}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_aaa412042eb7c20f305f4c0ec18e1f7d2}
+\index{remix\_\-time.h@{remix\_\-time.h}!remix\_\-time\_\-zero@{remix\_\-time\_\-zero}}
+\index{remix\_\-time\_\-zero@{remix\_\-time\_\-zero}!remix_time.h@{remix\_\-time.h}}
+\subsubsection[{remix\_\-time\_\-zero}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-time\_\-zero (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixTimeType}}]{ type}
+\end{DoxyParamCaption}
+)}\label{remix__time_8h_a6926d239bc717209224972b02109a03c}

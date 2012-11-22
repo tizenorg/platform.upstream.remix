@@ -1,0 +1,268 @@
+\section{remix\_\-stream.h File Reference}
+\label{remix__stream_8h}\index{remix\_\-stream.h@{remix\_\-stream.h}}
+
+
+The abstraction of multichannel audio data in libremix is known as a stream.  
+
+
+{\ttfamily \#include $<$remix/remix\_\-types.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf RemixStream} $\ast$ {\bf remix\_\-stream\_\-new} ({\bf RemixEnv} $\ast$env)
+\item 
+{\bf RemixStream} $\ast$ {\bf remix\_\-stream\_\-new\_\-contiguous} ({\bf RemixEnv} $\ast$env, {\bf RemixCount} length)
+\item 
+{\bf RemixStream} $\ast$ {\bf remix\_\-stream\_\-new\_\-from\_\-buffers} ({\bf RemixEnv} $\ast$env, {\bf RemixCount} length, {\bf RemixPCM} $\ast$$\ast$buffers)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-nr\_\-channels} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream)
+\item 
+{\bf RemixChannel} $\ast$ {\bf remix\_\-stream\_\-find\_\-channel} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, int name)
+\item 
+{\bf RemixChannel} $\ast$ {\bf remix\_\-stream\_\-add\_\-channel} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, int name)
+\item 
+{\bf RemixStream} $\ast$ {\bf remix\_\-stream\_\-remove\_\-channel} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, int name)
+\item 
+{\bf RemixStream} $\ast$ {\bf remix\_\-stream\_\-add\_\-chunks} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, {\bf RemixCount} offset, {\bf RemixCount} length)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-write0} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, {\bf RemixCount} count)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-write} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, {\bf RemixCount} count, {\bf RemixStream} $\ast$data)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-copy} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$src, {\bf RemixStream} $\ast$dest, {\bf RemixCount} count)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-gain} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, {\bf RemixCount} count, {\bf RemixPCM} gain)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-mix} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$src, {\bf RemixStream} $\ast$dest, {\bf RemixCount} count)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-mult} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$src, {\bf RemixStream} $\ast$dest, {\bf RemixCount} count)
+\item 
+{\bf RemixCount} {\bf remix\_\-streams\_\-mix} ({\bf RemixEnv} $\ast$env, CDList $\ast$streams, {\bf RemixStream} $\ast$dest, {\bf RemixCount} count)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-fade} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$src, {\bf RemixStream} $\ast$dest, {\bf RemixCount} count)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-blend} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$src, {\bf RemixStream} $\ast$dest, {\bf RemixStream} $\ast$blend, {\bf RemixCount} count)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-interleave\_\-2} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, int name1, int name2, {\bf RemixPCM} $\ast$dest, {\bf RemixCount} count)
+\item 
+{\bf RemixCount} {\bf remix\_\-stream\_\-deinterleave\_\-2} ({\bf RemixEnv} $\ast$env, {\bf RemixStream} $\ast$stream, int name1, int name2, {\bf RemixPCM} $\ast$src, {\bf RemixCount} count)
+\item 
+int {\bf remix\_\-chunk\_\-later} ({\bf RemixEnv} $\ast$env, {\bf RemixChunk} $\ast$u1, {\bf RemixChunk} $\ast$u2)
+\item 
+{\bf RemixCount} {\bf remix\_\-chunk\_\-clear} ({\bf RemixEnv} $\ast$env, {\bf RemixChunk} $\ast$chunk)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The abstraction of multichannel audio data in libremix is known as a stream. A stream may consist of multiple channels, each of which can consist of an arbitrary number of sparsely placed chunks of raw audio data. The channels are named with spatial names such as LEFT, RIGHT and CENTRE as required for common home, studio and theatre environments.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=10cm]{streams}
+\caption{Inside a Remix stream}
+\end{DoxyImage}
+
+
+Generic routines are provided for mixing, multiplying and blending streams of data. 
+
+\subsection{Function Documentation}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-chunk\_\-clear@{remix\_\-chunk\_\-clear}}
+\index{remix\_\-chunk\_\-clear@{remix\_\-chunk\_\-clear}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-chunk\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-chunk\_\-clear (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixChunk} $\ast$}]{ chunk}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a03a6d31927a1cc53dfe8a0d59fe0e52b}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-chunk\_\-later@{remix\_\-chunk\_\-later}}
+\index{remix\_\-chunk\_\-later@{remix\_\-chunk\_\-later}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-chunk\_\-later}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-chunk\_\-later (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixChunk} $\ast$}]{ u1, }
+\item[{{\bf RemixChunk} $\ast$}]{ u2}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a5737a3a51689ab6daee830029fadd427}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-add\_\-channel@{remix\_\-stream\_\-add\_\-channel}}
+\index{remix\_\-stream\_\-add\_\-channel@{remix\_\-stream\_\-add\_\-channel}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-add\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixChannel}$\ast$ remix\_\-stream\_\-add\_\-channel (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{int}]{ name}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_afc1d7c615cb1866e522ef1c83fb790db}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-add\_\-chunks@{remix\_\-stream\_\-add\_\-chunks}}
+\index{remix\_\-stream\_\-add\_\-chunks@{remix\_\-stream\_\-add\_\-chunks}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-add\_\-chunks}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixStream}$\ast$ remix\_\-stream\_\-add\_\-chunks (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{{\bf RemixCount}}]{ offset, }
+\item[{{\bf RemixCount}}]{ length}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a5c448f8f5db0d7fc1ec2075ed6baf034}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-blend@{remix\_\-stream\_\-blend}}
+\index{remix\_\-stream\_\-blend@{remix\_\-stream\_\-blend}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-blend}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-blend (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ src, }
+\item[{{\bf RemixStream} $\ast$}]{ dest, }
+\item[{{\bf RemixStream} $\ast$}]{ blend, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a257146170e61c01992d7f6e7551873bb}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-copy@{remix\_\-stream\_\-copy}}
+\index{remix\_\-stream\_\-copy@{remix\_\-stream\_\-copy}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-copy (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ src, }
+\item[{{\bf RemixStream} $\ast$}]{ dest, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a8e1641b9a0e41cd478e38ac1fee55357}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-deinterleave\_\-2@{remix\_\-stream\_\-deinterleave\_\-2}}
+\index{remix\_\-stream\_\-deinterleave\_\-2@{remix\_\-stream\_\-deinterleave\_\-2}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-deinterleave\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-deinterleave\_\-2 (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{int}]{ name1, }
+\item[{int}]{ name2, }
+\item[{{\bf RemixPCM} $\ast$}]{ src, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a726d2912c86ae8c462ba7ca6b4c43b3e}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-fade@{remix\_\-stream\_\-fade}}
+\index{remix\_\-stream\_\-fade@{remix\_\-stream\_\-fade}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-fade}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-fade (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ src, }
+\item[{{\bf RemixStream} $\ast$}]{ dest, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_abf60d63d95af8f1767b93a0156965b8d}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-find\_\-channel@{remix\_\-stream\_\-find\_\-channel}}
+\index{remix\_\-stream\_\-find\_\-channel@{remix\_\-stream\_\-find\_\-channel}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-find\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixChannel}$\ast$ remix\_\-stream\_\-find\_\-channel (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{int}]{ name}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a567376a86c26feb2adf69cb3410318a8}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-gain@{remix\_\-stream\_\-gain}}
+\index{remix\_\-stream\_\-gain@{remix\_\-stream\_\-gain}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-gain (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{{\bf RemixCount}}]{ count, }
+\item[{{\bf RemixPCM}}]{ gain}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a145485b4597db0cd113af272ff3ccab6}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-interleave\_\-2@{remix\_\-stream\_\-interleave\_\-2}}
+\index{remix\_\-stream\_\-interleave\_\-2@{remix\_\-stream\_\-interleave\_\-2}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-interleave\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-interleave\_\-2 (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{int}]{ name1, }
+\item[{int}]{ name2, }
+\item[{{\bf RemixPCM} $\ast$}]{ dest, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_adc43b1701deb881069f5f9544791bf1f}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-mix@{remix\_\-stream\_\-mix}}
+\index{remix\_\-stream\_\-mix@{remix\_\-stream\_\-mix}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-mix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-mix (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ src, }
+\item[{{\bf RemixStream} $\ast$}]{ dest, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a307e1d5d3d63f6ae516090ce383a84af}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-mult@{remix\_\-stream\_\-mult}}
+\index{remix\_\-stream\_\-mult@{remix\_\-stream\_\-mult}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-mult}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-mult (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ src, }
+\item[{{\bf RemixStream} $\ast$}]{ dest, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a7ea763f30a2a202b26d548c75eaee94b}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-new@{remix\_\-stream\_\-new}}
+\index{remix\_\-stream\_\-new@{remix\_\-stream\_\-new}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixStream}$\ast$ remix\_\-stream\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_ae4f3724838314c3da9d81c7b97ffe027}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-new\_\-contiguous@{remix\_\-stream\_\-new\_\-contiguous}}
+\index{remix\_\-stream\_\-new\_\-contiguous@{remix\_\-stream\_\-new\_\-contiguous}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-new\_\-contiguous}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixStream}$\ast$ remix\_\-stream\_\-new\_\-contiguous (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixCount}}]{ length}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_aa50475c095a08eff32a8a1f309c1898e}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-new\_\-from\_\-buffers@{remix\_\-stream\_\-new\_\-from\_\-buffers}}
+\index{remix\_\-stream\_\-new\_\-from\_\-buffers@{remix\_\-stream\_\-new\_\-from\_\-buffers}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-new\_\-from\_\-buffers}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixStream}$\ast$ remix\_\-stream\_\-new\_\-from\_\-buffers (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixCount}}]{ length, }
+\item[{{\bf RemixPCM} $\ast$$\ast$}]{ buffers}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a7370164a048f08b1968891c9359fb93c}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-nr\_\-channels@{remix\_\-stream\_\-nr\_\-channels}}
+\index{remix\_\-stream\_\-nr\_\-channels@{remix\_\-stream\_\-nr\_\-channels}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-nr\_\-channels}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-nr\_\-channels (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a2eda548bfc1fbe30f527f3141032b492}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-remove\_\-channel@{remix\_\-stream\_\-remove\_\-channel}}
+\index{remix\_\-stream\_\-remove\_\-channel@{remix\_\-stream\_\-remove\_\-channel}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-remove\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixStream}$\ast$ remix\_\-stream\_\-remove\_\-channel (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{int}]{ name}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a7e59d8029cdb31e57f5f4d9ab9eae19b}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-write@{remix\_\-stream\_\-write}}
+\index{remix\_\-stream\_\-write@{remix\_\-stream\_\-write}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{{\bf RemixCount}}]{ count, }
+\item[{{\bf RemixStream} $\ast$}]{ data}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a27b84ffce84ab0a36cfe3aa98133928e}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-stream\_\-write0@{remix\_\-stream\_\-write0}}
+\index{remix\_\-stream\_\-write0@{remix\_\-stream\_\-write0}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-stream\_\-write0}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-stream\_\-write0 (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixStream} $\ast$}]{ stream, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a9f6a3bf167fcf6dbf19de9959a12c8dd}
+\index{remix\_\-stream.h@{remix\_\-stream.h}!remix\_\-streams\_\-mix@{remix\_\-streams\_\-mix}}
+\index{remix\_\-streams\_\-mix@{remix\_\-streams\_\-mix}!remix_stream.h@{remix\_\-stream.h}}
+\subsubsection[{remix\_\-streams\_\-mix}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-streams\_\-mix (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{CDList $\ast$}]{ streams, }
+\item[{{\bf RemixStream} $\ast$}]{ dest, }
+\item[{{\bf RemixCount}}]{ count}
+\end{DoxyParamCaption}
+)}\label{remix__stream_8h_a6704f1b241c27133cb9693f59a0aec3e}

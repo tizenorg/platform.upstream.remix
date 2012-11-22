@@ -1,0 +1,496 @@
+\section{remix\_\-deck.h File Reference}
+\label{remix__deck_8h}\index{remix\_\-deck.h@{remix\_\-deck.h}}
+
+
+The top level structured mixing abstraction in libremix is known as a deck.  
+
+
+{\ttfamily \#include $<$remix/remix\_\-types.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf RemixDeck} $\ast$ {\bf remix\_\-deck\_\-new} ({\bf RemixEnv} $\ast$env)
+\item 
+{\bf RemixCount} {\bf remix\_\-deck\_\-set\_\-mixlength} ({\bf RemixEnv} $\ast$env, {\bf RemixDeck} $\ast$deck, {\bf RemixCount} mixlength)
+\item 
+{\bf RemixCount} {\bf remix\_\-deck\_\-get\_\-mixlength} ({\bf RemixEnv} $\ast$env, {\bf RemixDeck} $\ast$deck)
+\item 
+CDList $\ast$ {\bf remix\_\-deck\_\-get\_\-tracks} ({\bf RemixEnv} $\ast$env, {\bf RemixDeck} $\ast$deck)
+\item 
+{\bf RemixTrack} $\ast$ {\bf remix\_\-track\_\-new} ({\bf RemixEnv} $\ast$env, {\bf RemixDeck} $\ast$deck)
+\item 
+{\bf RemixPCM} {\bf remix\_\-track\_\-set\_\-gain} ({\bf RemixEnv} $\ast$env, {\bf RemixTrack} $\ast$track, {\bf RemixPCM} gain)
+\item 
+{\bf RemixPCM} {\bf remix\_\-track\_\-get\_\-gain} ({\bf RemixEnv} $\ast$env, {\bf RemixTrack} $\ast$track)
+\item 
+{\bf RemixCount} {\bf remix\_\-track\_\-set\_\-mixlength} ({\bf RemixEnv} $\ast$env, {\bf RemixTrack} $\ast$track, {\bf RemixCount} mixlength)
+\item 
+{\bf RemixCount} {\bf remix\_\-track\_\-get\_\-mixlength} ({\bf RemixEnv} $\ast$env, {\bf RemixTrack} $\ast$track)
+\item 
+void {\bf remix\_\-remove\_\-track} ({\bf RemixEnv} $\ast$env, {\bf RemixTrack} $\ast$track)
+\item 
+{\bf RemixDeck} $\ast$ {\bf remix\_\-track\_\-get\_\-deck} ({\bf RemixEnv} $\ast$env, {\bf RemixTrack} $\ast$track)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-layer\_\-new\_\-ontop} ({\bf RemixEnv} $\ast$env, {\bf RemixTrack} $\ast$track, {\bf RemixTimeType} timetype)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-layer\_\-new\_\-above} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$above, {\bf RemixTimeType} timetype)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-layer\_\-move\_\-ontop} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer, {\bf RemixTrack} $\ast$track)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-layer\_\-move\_\-above} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer, {\bf RemixLayer} $\ast$above)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-layer\_\-raise} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-layer\_\-lower} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer)
+\item 
+{\bf RemixTrack} $\ast$ {\bf remix\_\-layer\_\-get\_\-track} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer)
+\item 
+{\bf RemixDeck} $\ast$ {\bf remix\_\-layer\_\-get\_\-deck} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer)
+\item 
+{\bf RemixTimeType} {\bf remix\_\-layer\_\-set\_\-timetype} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer, {\bf RemixTimeType} new\_\-type)
+\item 
+{\bf RemixTimeType} {\bf remix\_\-layer\_\-get\_\-timetype} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer)
+\item 
+{\bf RemixSound} $\ast$ {\bf remix\_\-layer\_\-get\_\-sound\_\-before} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer, {\bf RemixTime} time)
+\item 
+{\bf RemixSound} $\ast$ {\bf remix\_\-layer\_\-get\_\-sound\_\-at} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer, {\bf RemixTime} time)
+\item 
+{\bf RemixSound} $\ast$ {\bf remix\_\-layer\_\-get\_\-sound\_\-after} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer, {\bf RemixTime} time)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-layer\_\-below} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-layer\_\-above} ({\bf RemixEnv} $\ast$env, {\bf RemixLayer} $\ast$layer)
+\item 
+{\bf RemixSound} $\ast$ {\bf remix\_\-sound\_\-new} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$source, {\bf RemixLayer} $\ast$layer, {\bf RemixTime} start\_\-time, {\bf RemixTime} duration)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-sound\_\-set\_\-source} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound, {\bf RemixBase} $\ast$source)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-sound\_\-get\_\-source} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixLayer} $\ast$ {\bf remix\_\-sound\_\-get\_\-layer} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixTrack} $\ast$ {\bf remix\_\-sound\_\-get\_\-track} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixDeck} $\ast$ {\bf remix\_\-sound\_\-get\_\-deck} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixTime} {\bf remix\_\-sound\_\-move} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound, {\bf RemixTime} time)
+\item 
+{\bf RemixSound} $\ast$ {\bf remix\_\-sound\_\-get\_\-prev} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixSound} $\ast$ {\bf remix\_\-sound\_\-get\_\-next} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixTime} {\bf remix\_\-sound\_\-set\_\-start\_\-time} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound, {\bf RemixTime} time)
+\item 
+{\bf RemixTime} {\bf remix\_\-sound\_\-get\_\-start\_\-time} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixTime} {\bf remix\_\-sound\_\-set\_\-duration} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound, {\bf RemixTime} time)
+\item 
+{\bf RemixTime} {\bf remix\_\-sound\_\-get\_\-duration} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-sound\_\-set\_\-rate\_\-envelope} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound, {\bf RemixBase} $\ast$rate\_\-envelope)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-sound\_\-get\_\-rate\_\-envelope} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-sound\_\-set\_\-gain\_\-envelope} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound, {\bf RemixBase} $\ast$gain\_\-envelope)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-sound\_\-get\_\-gain\_\-envelope} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-sound\_\-set\_\-blend\_\-envelope} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound, {\bf RemixBase} $\ast$blend\_\-envelope)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-sound\_\-get\_\-blend\_\-envelope} ({\bf RemixEnv} $\ast$env, {\bf RemixSound} $\ast$sound)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The top level structured mixing abstraction in libremix is known as a deck. A deck contains a number of tracks which are mixed in parallel. Each track may contain a number of layers which are mixed from bottom to top in series. Finally, these layers each contain a sequence of sounds with transparency.
+
+ 
+\begin{DoxyImage}
+\includegraphics[width=10cm]{decks}
+\caption{Inside a Remix deck}
+\end{DoxyImage}
+
+
+The sequence of sounds in a layer can be indexed by samples, seconds or tempo. Sounds provide audio data from any instrument or effect source, and these sources can each be reused multiple times. A sound can even source its audio data from another entire deck, thus decks can be used to sequence other decks. In this manner effects can be applied to sequences of decks, and sequences of decks can be stored as higher level units such as verses and choruses in a music application. 
+
+\subsection{Function Documentation}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-deck\_\-get\_\-mixlength@{remix\_\-deck\_\-get\_\-mixlength}}
+\index{remix\_\-deck\_\-get\_\-mixlength@{remix\_\-deck\_\-get\_\-mixlength}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-deck\_\-get\_\-mixlength}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-deck\_\-get\_\-mixlength (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixDeck} $\ast$}]{ deck}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a705cc69bca8f23beaddea33214b3de67}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-deck\_\-get\_\-tracks@{remix\_\-deck\_\-get\_\-tracks}}
+\index{remix\_\-deck\_\-get\_\-tracks@{remix\_\-deck\_\-get\_\-tracks}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-deck\_\-get\_\-tracks}]{\setlength{\rightskip}{0pt plus 5cm}CDList$\ast$ remix\_\-deck\_\-get\_\-tracks (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixDeck} $\ast$}]{ deck}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a711d31b76856844f5cf47a467a2bf000}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-deck\_\-new@{remix\_\-deck\_\-new}}
+\index{remix\_\-deck\_\-new@{remix\_\-deck\_\-new}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-deck\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixDeck}$\ast$ remix\_\-deck\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a0aa960eeba29c5206bffe5dd4fb0a576}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-deck\_\-set\_\-mixlength@{remix\_\-deck\_\-set\_\-mixlength}}
+\index{remix\_\-deck\_\-set\_\-mixlength@{remix\_\-deck\_\-set\_\-mixlength}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-deck\_\-set\_\-mixlength}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-deck\_\-set\_\-mixlength (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixDeck} $\ast$}]{ deck, }
+\item[{{\bf RemixCount}}]{ mixlength}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_afd7ed94408389b07450e21f280e29f7e}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-above@{remix\_\-layer\_\-above}}
+\index{remix\_\-layer\_\-above@{remix\_\-layer\_\-above}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-above}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-layer\_\-above (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a81cf57445d35b0bb72a7fa3a943a4547}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-below@{remix\_\-layer\_\-below}}
+\index{remix\_\-layer\_\-below@{remix\_\-layer\_\-below}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-below}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-layer\_\-below (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a396f6f220a5ffc593ab72bed47c7bb9c}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-get\_\-deck@{remix\_\-layer\_\-get\_\-deck}}
+\index{remix\_\-layer\_\-get\_\-deck@{remix\_\-layer\_\-get\_\-deck}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-get\_\-deck}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixDeck}$\ast$ remix\_\-layer\_\-get\_\-deck (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a8a42b8db45427fb2ff98d61bf165242a}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-get\_\-sound\_\-after@{remix\_\-layer\_\-get\_\-sound\_\-after}}
+\index{remix\_\-layer\_\-get\_\-sound\_\-after@{remix\_\-layer\_\-get\_\-sound\_\-after}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-get\_\-sound\_\-after}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixSound}$\ast$ remix\_\-layer\_\-get\_\-sound\_\-after (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer, }
+\item[{{\bf RemixTime}}]{ time}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ac2910165f6669de96d938f1aac895798}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-get\_\-sound\_\-at@{remix\_\-layer\_\-get\_\-sound\_\-at}}
+\index{remix\_\-layer\_\-get\_\-sound\_\-at@{remix\_\-layer\_\-get\_\-sound\_\-at}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-get\_\-sound\_\-at}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixSound}$\ast$ remix\_\-layer\_\-get\_\-sound\_\-at (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer, }
+\item[{{\bf RemixTime}}]{ time}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ac45b04d777599e27a538c7a655abdcb0}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-get\_\-sound\_\-before@{remix\_\-layer\_\-get\_\-sound\_\-before}}
+\index{remix\_\-layer\_\-get\_\-sound\_\-before@{remix\_\-layer\_\-get\_\-sound\_\-before}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-get\_\-sound\_\-before}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixSound}$\ast$ remix\_\-layer\_\-get\_\-sound\_\-before (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer, }
+\item[{{\bf RemixTime}}]{ time}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_af395b627eb568cafecc28761de41b86b}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-get\_\-timetype@{remix\_\-layer\_\-get\_\-timetype}}
+\index{remix\_\-layer\_\-get\_\-timetype@{remix\_\-layer\_\-get\_\-timetype}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-get\_\-timetype}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTimeType} remix\_\-layer\_\-get\_\-timetype (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ada1e750f714b263e7813465f3b542549}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-get\_\-track@{remix\_\-layer\_\-get\_\-track}}
+\index{remix\_\-layer\_\-get\_\-track@{remix\_\-layer\_\-get\_\-track}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-get\_\-track}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTrack}$\ast$ remix\_\-layer\_\-get\_\-track (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a1051513bb1be6cd2d4b0da4bd4ed4088}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-lower@{remix\_\-layer\_\-lower}}
+\index{remix\_\-layer\_\-lower@{remix\_\-layer\_\-lower}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-lower}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-layer\_\-lower (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_aa7b9dd5c6c4876363b47821e35954699}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-move\_\-above@{remix\_\-layer\_\-move\_\-above}}
+\index{remix\_\-layer\_\-move\_\-above@{remix\_\-layer\_\-move\_\-above}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-move\_\-above}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-layer\_\-move\_\-above (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer, }
+\item[{{\bf RemixLayer} $\ast$}]{ above}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a7770876968322804dc9802500642ebe9}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-move\_\-ontop@{remix\_\-layer\_\-move\_\-ontop}}
+\index{remix\_\-layer\_\-move\_\-ontop@{remix\_\-layer\_\-move\_\-ontop}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-move\_\-ontop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-layer\_\-move\_\-ontop (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer, }
+\item[{{\bf RemixTrack} $\ast$}]{ track}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a68e2f6a6019de2fc5d7fa209b03069c0}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-new\_\-above@{remix\_\-layer\_\-new\_\-above}}
+\index{remix\_\-layer\_\-new\_\-above@{remix\_\-layer\_\-new\_\-above}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-new\_\-above}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-layer\_\-new\_\-above (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ above, }
+\item[{{\bf RemixTimeType}}]{ timetype}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a2ff093670832a46b312ebf0e56c4ce22}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-new\_\-ontop@{remix\_\-layer\_\-new\_\-ontop}}
+\index{remix\_\-layer\_\-new\_\-ontop@{remix\_\-layer\_\-new\_\-ontop}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-new\_\-ontop}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-layer\_\-new\_\-ontop (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTrack} $\ast$}]{ track, }
+\item[{{\bf RemixTimeType}}]{ timetype}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a85af2fb832e5b1a0d4d6f56aecfaf9cf}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-raise@{remix\_\-layer\_\-raise}}
+\index{remix\_\-layer\_\-raise@{remix\_\-layer\_\-raise}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-raise}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-layer\_\-raise (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a7dc76628870b7a59f73ddc269b2d5f1f}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-layer\_\-set\_\-timetype@{remix\_\-layer\_\-set\_\-timetype}}
+\index{remix\_\-layer\_\-set\_\-timetype@{remix\_\-layer\_\-set\_\-timetype}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-layer\_\-set\_\-timetype}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTimeType} remix\_\-layer\_\-set\_\-timetype (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer, }
+\item[{{\bf RemixTimeType}}]{ new\_\-type}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ac317ce42ded69187bc51836658e58906}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-remove\_\-track@{remix\_\-remove\_\-track}}
+\index{remix\_\-remove\_\-track@{remix\_\-remove\_\-track}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-remove\_\-track}]{\setlength{\rightskip}{0pt plus 5cm}void remix\_\-remove\_\-track (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTrack} $\ast$}]{ track}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a33177057c1b9863664aab041552bff0c}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-blend\_\-envelope@{remix\_\-sound\_\-get\_\-blend\_\-envelope}}
+\index{remix\_\-sound\_\-get\_\-blend\_\-envelope@{remix\_\-sound\_\-get\_\-blend\_\-envelope}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-blend\_\-envelope}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-sound\_\-get\_\-blend\_\-envelope (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a04eb1e08669b3b991730295158ac49b4}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-deck@{remix\_\-sound\_\-get\_\-deck}}
+\index{remix\_\-sound\_\-get\_\-deck@{remix\_\-sound\_\-get\_\-deck}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-deck}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixDeck}$\ast$ remix\_\-sound\_\-get\_\-deck (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a52aa1145d0982c9796253bb9af5433b4}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-duration@{remix\_\-sound\_\-get\_\-duration}}
+\index{remix\_\-sound\_\-get\_\-duration@{remix\_\-sound\_\-get\_\-duration}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-duration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-sound\_\-get\_\-duration (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a2297cf322faeff1b4dd75c4e0a7e3f13}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-gain\_\-envelope@{remix\_\-sound\_\-get\_\-gain\_\-envelope}}
+\index{remix\_\-sound\_\-get\_\-gain\_\-envelope@{remix\_\-sound\_\-get\_\-gain\_\-envelope}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-gain\_\-envelope}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-sound\_\-get\_\-gain\_\-envelope (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a4bdc233407d5227ca97c565b1d6c378f}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-layer@{remix\_\-sound\_\-get\_\-layer}}
+\index{remix\_\-sound\_\-get\_\-layer@{remix\_\-sound\_\-get\_\-layer}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-layer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixLayer}$\ast$ remix\_\-sound\_\-get\_\-layer (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a0b7f353a43a91ab82c624fb0685060ee}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-next@{remix\_\-sound\_\-get\_\-next}}
+\index{remix\_\-sound\_\-get\_\-next@{remix\_\-sound\_\-get\_\-next}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixSound}$\ast$ remix\_\-sound\_\-get\_\-next (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a1a3a17ef5662ce11c07048ece5b910b5}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-prev@{remix\_\-sound\_\-get\_\-prev}}
+\index{remix\_\-sound\_\-get\_\-prev@{remix\_\-sound\_\-get\_\-prev}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-prev}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixSound}$\ast$ remix\_\-sound\_\-get\_\-prev (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ab7e1243b0ce8e57af1cb7fe52deae699}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-rate\_\-envelope@{remix\_\-sound\_\-get\_\-rate\_\-envelope}}
+\index{remix\_\-sound\_\-get\_\-rate\_\-envelope@{remix\_\-sound\_\-get\_\-rate\_\-envelope}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-rate\_\-envelope}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-sound\_\-get\_\-rate\_\-envelope (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a3906476009879a93b2b4d5374e0c5964}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-source@{remix\_\-sound\_\-get\_\-source}}
+\index{remix\_\-sound\_\-get\_\-source@{remix\_\-sound\_\-get\_\-source}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-sound\_\-get\_\-source (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_aee2d41ff9223c9311e4cf0d020f42ed1}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-start\_\-time@{remix\_\-sound\_\-get\_\-start\_\-time}}
+\index{remix\_\-sound\_\-get\_\-start\_\-time@{remix\_\-sound\_\-get\_\-start\_\-time}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-start\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-sound\_\-get\_\-start\_\-time (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a4e942ed2a8cc0554ef37d5324f01b60d}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-get\_\-track@{remix\_\-sound\_\-get\_\-track}}
+\index{remix\_\-sound\_\-get\_\-track@{remix\_\-sound\_\-get\_\-track}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-get\_\-track}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTrack}$\ast$ remix\_\-sound\_\-get\_\-track (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a98cce23fcaf46a1857460e302914c4d3}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-move@{remix\_\-sound\_\-move}}
+\index{remix\_\-sound\_\-move@{remix\_\-sound\_\-move}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-move}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-sound\_\-move (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound, }
+\item[{{\bf RemixTime}}]{ time}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ac02c3e770c4cda3ff4952dec9be914e7}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-new@{remix\_\-sound\_\-new}}
+\index{remix\_\-sound\_\-new@{remix\_\-sound\_\-new}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixSound}$\ast$ remix\_\-sound\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ source, }
+\item[{{\bf RemixLayer} $\ast$}]{ layer, }
+\item[{{\bf RemixTime}}]{ start\_\-time, }
+\item[{{\bf RemixTime}}]{ duration}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a4484f73a717be50e7a606b203a816d41}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-set\_\-blend\_\-envelope@{remix\_\-sound\_\-set\_\-blend\_\-envelope}}
+\index{remix\_\-sound\_\-set\_\-blend\_\-envelope@{remix\_\-sound\_\-set\_\-blend\_\-envelope}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-set\_\-blend\_\-envelope}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-sound\_\-set\_\-blend\_\-envelope (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound, }
+\item[{{\bf RemixBase} $\ast$}]{ blend\_\-envelope}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a482db80dd7cd1321452ea015247a9a85}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-set\_\-duration@{remix\_\-sound\_\-set\_\-duration}}
+\index{remix\_\-sound\_\-set\_\-duration@{remix\_\-sound\_\-set\_\-duration}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-set\_\-duration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-sound\_\-set\_\-duration (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound, }
+\item[{{\bf RemixTime}}]{ time}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a007e667aa5e032656610b59b5e687f8d}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-set\_\-gain\_\-envelope@{remix\_\-sound\_\-set\_\-gain\_\-envelope}}
+\index{remix\_\-sound\_\-set\_\-gain\_\-envelope@{remix\_\-sound\_\-set\_\-gain\_\-envelope}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-set\_\-gain\_\-envelope}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-sound\_\-set\_\-gain\_\-envelope (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound, }
+\item[{{\bf RemixBase} $\ast$}]{ gain\_\-envelope}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a1db39a777fc539e147f52da48947a4f8}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-set\_\-rate\_\-envelope@{remix\_\-sound\_\-set\_\-rate\_\-envelope}}
+\index{remix\_\-sound\_\-set\_\-rate\_\-envelope@{remix\_\-sound\_\-set\_\-rate\_\-envelope}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-set\_\-rate\_\-envelope}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-sound\_\-set\_\-rate\_\-envelope (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound, }
+\item[{{\bf RemixBase} $\ast$}]{ rate\_\-envelope}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a922a3086cfbc0668f181663a4bec0330}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-set\_\-source@{remix\_\-sound\_\-set\_\-source}}
+\index{remix\_\-sound\_\-set\_\-source@{remix\_\-sound\_\-set\_\-source}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-set\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-sound\_\-set\_\-source (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound, }
+\item[{{\bf RemixBase} $\ast$}]{ source}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ae9b8a05a6b3877dd052aa213eb124ab8}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-sound\_\-set\_\-start\_\-time@{remix\_\-sound\_\-set\_\-start\_\-time}}
+\index{remix\_\-sound\_\-set\_\-start\_\-time@{remix\_\-sound\_\-set\_\-start\_\-time}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-sound\_\-set\_\-start\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTime} remix\_\-sound\_\-set\_\-start\_\-time (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSound} $\ast$}]{ sound, }
+\item[{{\bf RemixTime}}]{ time}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a02fe343cc47cbd7cef97e8a704a8af4b}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-track\_\-get\_\-deck@{remix\_\-track\_\-get\_\-deck}}
+\index{remix\_\-track\_\-get\_\-deck@{remix\_\-track\_\-get\_\-deck}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-track\_\-get\_\-deck}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixDeck}$\ast$ remix\_\-track\_\-get\_\-deck (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTrack} $\ast$}]{ track}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a0da97275585a13f9f20b324d8f1f6706}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-track\_\-get\_\-gain@{remix\_\-track\_\-get\_\-gain}}
+\index{remix\_\-track\_\-get\_\-gain@{remix\_\-track\_\-get\_\-gain}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-track\_\-get\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixPCM} remix\_\-track\_\-get\_\-gain (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTrack} $\ast$}]{ track}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ac5368af87946d044e0e8c00c9f276f8f}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-track\_\-get\_\-mixlength@{remix\_\-track\_\-get\_\-mixlength}}
+\index{remix\_\-track\_\-get\_\-mixlength@{remix\_\-track\_\-get\_\-mixlength}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-track\_\-get\_\-mixlength}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-track\_\-get\_\-mixlength (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTrack} $\ast$}]{ track}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a632ac349a24b635727b8c77fe31f5e94}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-track\_\-new@{remix\_\-track\_\-new}}
+\index{remix\_\-track\_\-new@{remix\_\-track\_\-new}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-track\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTrack}$\ast$ remix\_\-track\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixDeck} $\ast$}]{ deck}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a0874aa124b1c6a5d53dbe1a0957eae20}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-track\_\-set\_\-gain@{remix\_\-track\_\-set\_\-gain}}
+\index{remix\_\-track\_\-set\_\-gain@{remix\_\-track\_\-set\_\-gain}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-track\_\-set\_\-gain}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixPCM} remix\_\-track\_\-set\_\-gain (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTrack} $\ast$}]{ track, }
+\item[{{\bf RemixPCM}}]{ gain}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_a2ee2baab17a7bcaba6989806551b32e4}
+\index{remix\_\-deck.h@{remix\_\-deck.h}!remix\_\-track\_\-set\_\-mixlength@{remix\_\-track\_\-set\_\-mixlength}}
+\index{remix\_\-track\_\-set\_\-mixlength@{remix\_\-track\_\-set\_\-mixlength}!remix_deck.h@{remix\_\-deck.h}}
+\subsubsection[{remix\_\-track\_\-set\_\-mixlength}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-track\_\-set\_\-mixlength (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTrack} $\ast$}]{ track, }
+\item[{{\bf RemixCount}}]{ mixlength}
+\end{DoxyParamCaption}
+)}\label{remix__deck_8h_ae74b8fb328afbbbfde494b4540b3ba0d}

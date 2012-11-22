@@ -1,0 +1,28 @@
+\section{Building against libremix}
+\label{group__building}\index{Building against libremix@{Building against libremix}}
+\subsection{Using GNU autoconf}\label{group__building_autoconf}
+If you are using GNU autoconf, you do not need to call pkg-\/config directly. Use the following macro to determine if libremix is available:
+
+
+\begin{DoxyPre}
+ PKG\_CHECK\_MODULES(REMIX, remix >= 0.2.0,
+                   HAVE\_REMIX="yes", HAVE\_REMIX="no")
+ if test "x$HAVE\_REMIX" = "xyes" ; then
+   AC\_SUBST(REMIX\_CFLAGS)
+   AC\_SUBST(REMIX\_LIBS)
+ fi
+ \end{DoxyPre}
+
+
+If libremix is found, HAVE\_\-REMIX will be set to \char`\"{}yes\char`\"{}, and the autoconf variables REMIX\_\-CFLAGS and REMIX\_\-LIBS will be set appropriately.\subsection{Determining compiler options with pkg-\/config}\label{group__building_pkg-config}
+If you are not using GNU autoconf in your project, you can use the pkg-\/config tool directly to determine the correct compiler options.
+
+
+\begin{DoxyPre}
+ REMIX\_CFLAGS=`pkg-config --cflags remix`\end{DoxyPre}
+
+
+
+\begin{DoxyPre} REMIX\_LIBS=`pkg-config --libs remix`
+ \end{DoxyPre}
+ 

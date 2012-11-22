@@ -1,0 +1,495 @@
+\section{remix.h File Reference}
+\label{remix_8h}\index{remix.h@{remix.h}}
+
+
+Base types and public interfaces to libremix.  
+
+
+{\ttfamily \#include $<$remix/remix\_\-types.h$>$}\par
+{\ttfamily \#include $<$remix/remix\_\-deck.h$>$}\par
+{\ttfamily \#include $<$remix/remix\_\-envelope.h$>$}\par
+{\ttfamily \#include $<$remix/remix\_\-stream.h$>$}\par
+{\ttfamily \#include $<$remix/remix\_\-time.h$>$}\par
+{\ttfamily \#include $<$remix/remix\_\-meta.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf RemixEnv} $\ast$ {\bf remix\_\-init} (void)
+\item 
+{\bf RemixEnv} $\ast$ {\bf remix\_\-init\_\-clone} ({\bf RemixEnv} $\ast$env)
+\item 
+void {\bf remix\_\-purge} ({\bf RemixEnv} $\ast$env)
+\item 
+{\bf RemixError} {\bf remix\_\-last\_\-error} ({\bf RemixEnv} $\ast$env)
+\item 
+char $\ast$ {\bf remix\_\-error\_\-string} ({\bf RemixEnv} $\ast$env, {\bf RemixError} error)
+\item 
+{\bf RemixSamplerate} {\bf remix\_\-set\_\-samplerate} ({\bf RemixEnv} $\ast$env, {\bf RemixSamplerate} samplerate)
+\item 
+{\bf RemixSamplerate} {\bf remix\_\-get\_\-samplerate} ({\bf RemixEnv} $\ast$env)
+\item 
+{\bf RemixTempo} {\bf remix\_\-set\_\-tempo} ({\bf RemixEnv} $\ast$env, {\bf RemixTempo} tempo)
+\item 
+{\bf RemixTempo} {\bf remix\_\-get\_\-tempo} ({\bf RemixEnv} $\ast$env)
+\item 
+CDSet $\ast$ {\bf remix\_\-set\_\-channels} ({\bf RemixEnv} $\ast$env, CDSet $\ast$channelset)
+\item 
+CDSet $\ast$ {\bf remix\_\-get\_\-channels} ({\bf RemixEnv} $\ast$env)
+\item 
+{\bf RemixPlugin} $\ast$ {\bf remix\_\-find\_\-plugin} ({\bf RemixEnv} $\ast$env, char $\ast$identifier)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-new} ({\bf RemixEnv} $\ast$env, {\bf RemixPlugin} $\ast$plugin, CDSet $\ast$parameters)
+\item 
+CDSet $\ast$ {\bf remix\_\-suggest} ({\bf RemixEnv} $\ast$env, {\bf RemixPlugin} $\ast$plugin, CDSet $\ast$parameters)
+\item 
+int {\bf remix\_\-get\_\-init\_\-parameter\_\-key} ({\bf RemixEnv} $\ast$env, {\bf RemixPlugin} $\ast$plugin, char $\ast$name)
+\item 
+int {\bf remix\_\-get\_\-parameter\_\-key} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base, char $\ast$name)
+\item 
+{\bf RemixParameter} {\bf remix\_\-set\_\-parameter} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base, int key, {\bf RemixParameter} parameter)
+\item 
+{\bf RemixParameter} {\bf remix\_\-get\_\-parameter} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base, int key)
+\item 
+{\bf RemixParameterType} {\bf remix\_\-get\_\-parameter\_\-type} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base, int key)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-clone\_\-subclass} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+int {\bf remix\_\-destroy} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+int {\bf remix\_\-destroy\_\-list} ({\bf RemixEnv} $\ast$env, CDList $\ast$list)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-prepare} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+{\bf RemixCount} {\bf remix\_\-process} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base, {\bf RemixCount} count, {\bf RemixStream} $\ast$input, {\bf RemixStream} $\ast$output)
+\item 
+{\bf RemixCount} {\bf remix\_\-length} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+{\bf RemixCount} {\bf remix\_\-seek} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base, {\bf RemixCount} offset, int whence)
+\item 
+{\bf RemixCount} {\bf remix\_\-tell} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+int {\bf remix\_\-flush} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+{\bf RemixCount} {\bf remix\_\-set\_\-mixlength} ({\bf RemixEnv} $\ast$env, {\bf RemixCount} mixlength)
+\item 
+{\bf RemixCount} {\bf remix\_\-get\_\-mixlength} ({\bf RemixEnv} $\ast$env)
+\item 
+int {\bf remix\_\-is\_\-writeable} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+int {\bf remix\_\-is\_\-seekable} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+int {\bf remix\_\-is\_\-cacheable} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+int {\bf remix\_\-is\_\-causal} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+char $\ast$ {\bf remix\_\-set\_\-name} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base, char $\ast$name)
+\item 
+char $\ast$ {\bf remix\_\-get\_\-name} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$base)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-squaretone\_\-new} ({\bf RemixEnv} $\ast$env, float frequency)
+\item 
+float {\bf remix\_\-squaretone\_\-set\_\-frequency} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$squaretone, float frequency)
+\item 
+float {\bf remix\_\-squaretone\_\-get\_\-frequency} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$squaretone)
+\item 
+{\bf RemixMonitor} $\ast$ {\bf remix\_\-monitor\_\-new} ({\bf RemixEnv} $\ast$env)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-scrubby\_\-new} ({\bf RemixEnv} $\ast$env)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-scrubby\_\-set\_\-source} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$scrubby, {\bf RemixBase} $\ast$source)
+\item 
+{\bf RemixBase} $\ast$ {\bf remix\_\-scrubby\_\-get\_\-source} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$scrubby)
+\item 
+int {\bf remix\_\-scrubby\_\-set\_\-direction} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$scrubby, int direction)
+\item 
+int {\bf remix\_\-scrubby\_\-get\_\-direction} ({\bf RemixEnv} $\ast$env, {\bf RemixBase} $\ast$scrubby)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+CDSet $\ast$ {\bf REMIX\_\-MONO}
+\item 
+CDSet $\ast$ {\bf REMIX\_\-STEREO}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Base types and public interfaces to libremix. 
+
+\subsection{Function Documentation}
+\index{remix.h@{remix.h}!remix\_\-clone\_\-subclass@{remix\_\-clone\_\-subclass}}
+\index{remix\_\-clone\_\-subclass@{remix\_\-clone\_\-subclass}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-clone\_\-subclass}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-clone\_\-subclass (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a5db3cef7b842d07e3aef5256d3be64bf}
+\index{remix.h@{remix.h}!remix\_\-destroy@{remix\_\-destroy}}
+\index{remix\_\-destroy@{remix\_\-destroy}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-destroy}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a1d85eea48b63907572dee48403737ba5}
+\index{remix.h@{remix.h}!remix\_\-destroy\_\-list@{remix\_\-destroy\_\-list}}
+\index{remix\_\-destroy\_\-list@{remix\_\-destroy\_\-list}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-destroy\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-destroy\_\-list (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{CDList $\ast$}]{ list}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ac72a5ed22645bffe8dbcc14095700c6c}
+\index{remix.h@{remix.h}!remix\_\-error\_\-string@{remix\_\-error\_\-string}}
+\index{remix\_\-error\_\-string@{remix\_\-error\_\-string}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-error\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-error\_\-string (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixError}}]{ error}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a56935223b9d8f15f2941ed962d5e16d1}
+\index{remix.h@{remix.h}!remix\_\-find\_\-plugin@{remix\_\-find\_\-plugin}}
+\index{remix\_\-find\_\-plugin@{remix\_\-find\_\-plugin}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-find\_\-plugin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixPlugin}$\ast$ remix\_\-find\_\-plugin (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{char $\ast$}]{ identifier}
+\end{DoxyParamCaption}
+)}\label{remix_8h_acde342e6f8fad8904e1336ae7ac4fa1b}
+\index{remix.h@{remix.h}!remix\_\-flush@{remix\_\-flush}}
+\index{remix\_\-flush@{remix\_\-flush}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-flush}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-flush (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a4b023186fc9ba154fb473cb6c5884a3f}
+\index{remix.h@{remix.h}!remix\_\-get\_\-channels@{remix\_\-get\_\-channels}}
+\index{remix\_\-get\_\-channels@{remix\_\-get\_\-channels}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-channels}]{\setlength{\rightskip}{0pt plus 5cm}CDSet$\ast$ remix\_\-get\_\-channels (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_aa1038f373b8efc359b018a190e2bc47e}
+\index{remix.h@{remix.h}!remix\_\-get\_\-init\_\-parameter\_\-key@{remix\_\-get\_\-init\_\-parameter\_\-key}}
+\index{remix\_\-get\_\-init\_\-parameter\_\-key@{remix\_\-get\_\-init\_\-parameter\_\-key}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-init\_\-parameter\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-get\_\-init\_\-parameter\_\-key (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixPlugin} $\ast$}]{ plugin, }
+\item[{char $\ast$}]{ name}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a5a76a63e4fc61f6209112aa514ec2756}
+\index{remix.h@{remix.h}!remix\_\-get\_\-mixlength@{remix\_\-get\_\-mixlength}}
+\index{remix\_\-get\_\-mixlength@{remix\_\-get\_\-mixlength}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-mixlength}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-get\_\-mixlength (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ac18f017e5808cfe00eeec2c868262061}
+\index{remix.h@{remix.h}!remix\_\-get\_\-name@{remix\_\-get\_\-name}}
+\index{remix\_\-get\_\-name@{remix\_\-get\_\-name}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-get\_\-name (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a6d7be65c1f81511b32f4166998f589ee}
+\index{remix.h@{remix.h}!remix\_\-get\_\-parameter@{remix\_\-get\_\-parameter}}
+\index{remix\_\-get\_\-parameter@{remix\_\-get\_\-parameter}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-parameter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixParameter} remix\_\-get\_\-parameter (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base, }
+\item[{int}]{ key}
+\end{DoxyParamCaption}
+)}\label{remix_8h_aa69a800d78b294b336946489831de02b}
+\index{remix.h@{remix.h}!remix\_\-get\_\-parameter\_\-key@{remix\_\-get\_\-parameter\_\-key}}
+\index{remix\_\-get\_\-parameter\_\-key@{remix\_\-get\_\-parameter\_\-key}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-parameter\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-get\_\-parameter\_\-key (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base, }
+\item[{char $\ast$}]{ name}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a9d422db64dd0a9f2131dddbd6a21d2f9}
+\index{remix.h@{remix.h}!remix\_\-get\_\-parameter\_\-type@{remix\_\-get\_\-parameter\_\-type}}
+\index{remix\_\-get\_\-parameter\_\-type@{remix\_\-get\_\-parameter\_\-type}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-parameter\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixParameterType} remix\_\-get\_\-parameter\_\-type (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base, }
+\item[{int}]{ key}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a24b87a6898c6117015c6694b6a637b15}
+\index{remix.h@{remix.h}!remix\_\-get\_\-samplerate@{remix\_\-get\_\-samplerate}}
+\index{remix\_\-get\_\-samplerate@{remix\_\-get\_\-samplerate}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-samplerate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixSamplerate} remix\_\-get\_\-samplerate (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a37da3515af11669d293b764b9b311923}
+\index{remix.h@{remix.h}!remix\_\-get\_\-tempo@{remix\_\-get\_\-tempo}}
+\index{remix\_\-get\_\-tempo@{remix\_\-get\_\-tempo}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-get\_\-tempo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTempo} remix\_\-get\_\-tempo (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a461020fabf77cfc00b2fc752c413ba09}
+\index{remix.h@{remix.h}!remix\_\-init@{remix\_\-init}}
+\index{remix\_\-init@{remix\_\-init}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixEnv}$\ast$ remix\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a11c73801163f8c34f3b5689713ff322e}
+\index{remix.h@{remix.h}!remix\_\-init\_\-clone@{remix\_\-init\_\-clone}}
+\index{remix\_\-init\_\-clone@{remix\_\-init\_\-clone}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-init\_\-clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixEnv}$\ast$ remix\_\-init\_\-clone (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ab36b74eb4fc2a3d515479034593744e1}
+\index{remix.h@{remix.h}!remix\_\-is\_\-cacheable@{remix\_\-is\_\-cacheable}}
+\index{remix\_\-is\_\-cacheable@{remix\_\-is\_\-cacheable}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-is\_\-cacheable}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-is\_\-cacheable (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a1abecea6a04ef515a8cce7ad2f2b28d7}
+\index{remix.h@{remix.h}!remix\_\-is\_\-causal@{remix\_\-is\_\-causal}}
+\index{remix\_\-is\_\-causal@{remix\_\-is\_\-causal}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-is\_\-causal}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-is\_\-causal (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_aeed110ffcd2355af34cf2443ba7cc9e2}
+\index{remix.h@{remix.h}!remix\_\-is\_\-seekable@{remix\_\-is\_\-seekable}}
+\index{remix\_\-is\_\-seekable@{remix\_\-is\_\-seekable}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-is\_\-seekable}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-is\_\-seekable (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a8cc7b21ec38d78e945731ae047910e58}
+\index{remix.h@{remix.h}!remix\_\-is\_\-writeable@{remix\_\-is\_\-writeable}}
+\index{remix\_\-is\_\-writeable@{remix\_\-is\_\-writeable}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-is\_\-writeable}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-is\_\-writeable (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a870f06e948f2eaeefeb38a464a270348}
+\index{remix.h@{remix.h}!remix\_\-last\_\-error@{remix\_\-last\_\-error}}
+\index{remix\_\-last\_\-error@{remix\_\-last\_\-error}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-last\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixError} remix\_\-last\_\-error (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_aeb5eb642edf6454d3be186d5244d7e52}
+\index{remix.h@{remix.h}!remix\_\-length@{remix\_\-length}}
+\index{remix\_\-length@{remix\_\-length}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-length (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ab35c2d3fd0bd9c03bc27f9a2b1a089e2}
+\index{remix.h@{remix.h}!remix\_\-monitor\_\-new@{remix\_\-monitor\_\-new}}
+\index{remix\_\-monitor\_\-new@{remix\_\-monitor\_\-new}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-monitor\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixMonitor}$\ast$ remix\_\-monitor\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ae094eddbbc09173dc4bcf4c9215df2ff}
+\index{remix.h@{remix.h}!remix\_\-new@{remix\_\-new}}
+\index{remix\_\-new@{remix\_\-new}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixPlugin} $\ast$}]{ plugin, }
+\item[{CDSet $\ast$}]{ parameters}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a39f2cbc084992ad2c37449b404e6272a}
+\index{remix.h@{remix.h}!remix\_\-prepare@{remix\_\-prepare}}
+\index{remix\_\-prepare@{remix\_\-prepare}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-prepare}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-prepare (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a47ed4d3941c57ca6025bf32253e7116e}
+\index{remix.h@{remix.h}!remix\_\-process@{remix\_\-process}}
+\index{remix\_\-process@{remix\_\-process}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-process}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-process (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base, }
+\item[{{\bf RemixCount}}]{ count, }
+\item[{{\bf RemixStream} $\ast$}]{ input, }
+\item[{{\bf RemixStream} $\ast$}]{ output}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a7395228b6f3855a7843fb15ff004ff77}
+\index{remix.h@{remix.h}!remix\_\-purge@{remix\_\-purge}}
+\index{remix\_\-purge@{remix\_\-purge}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-purge}]{\setlength{\rightskip}{0pt plus 5cm}void remix\_\-purge (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a26e505fa0ed0da0e8c2b8e7c7588dc47}
+\index{remix.h@{remix.h}!remix\_\-scrubby\_\-get\_\-direction@{remix\_\-scrubby\_\-get\_\-direction}}
+\index{remix\_\-scrubby\_\-get\_\-direction@{remix\_\-scrubby\_\-get\_\-direction}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-scrubby\_\-get\_\-direction}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-scrubby\_\-get\_\-direction (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ scrubby}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a618558a703f1e5b913a6aa8d3fec9665}
+\index{remix.h@{remix.h}!remix\_\-scrubby\_\-get\_\-source@{remix\_\-scrubby\_\-get\_\-source}}
+\index{remix\_\-scrubby\_\-get\_\-source@{remix\_\-scrubby\_\-get\_\-source}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-scrubby\_\-get\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-scrubby\_\-get\_\-source (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ scrubby}
+\end{DoxyParamCaption}
+)}\label{remix_8h_af6c287fd6d91cb845251be73a701a8c4}
+\index{remix.h@{remix.h}!remix\_\-scrubby\_\-new@{remix\_\-scrubby\_\-new}}
+\index{remix\_\-scrubby\_\-new@{remix\_\-scrubby\_\-new}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-scrubby\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-scrubby\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ace352dab5647cc3b60be5c3899f51f0d}
+\index{remix.h@{remix.h}!remix\_\-scrubby\_\-set\_\-direction@{remix\_\-scrubby\_\-set\_\-direction}}
+\index{remix\_\-scrubby\_\-set\_\-direction@{remix\_\-scrubby\_\-set\_\-direction}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-scrubby\_\-set\_\-direction}]{\setlength{\rightskip}{0pt plus 5cm}int remix\_\-scrubby\_\-set\_\-direction (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ scrubby, }
+\item[{int}]{ direction}
+\end{DoxyParamCaption}
+)}\label{remix_8h_aab29f38902f8a694a8a78606d48a717c}
+\index{remix.h@{remix.h}!remix\_\-scrubby\_\-set\_\-source@{remix\_\-scrubby\_\-set\_\-source}}
+\index{remix\_\-scrubby\_\-set\_\-source@{remix\_\-scrubby\_\-set\_\-source}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-scrubby\_\-set\_\-source}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-scrubby\_\-set\_\-source (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ scrubby, }
+\item[{{\bf RemixBase} $\ast$}]{ source}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a5c93780b800f01fa8312f3802a810a47}
+\index{remix.h@{remix.h}!remix\_\-seek@{remix\_\-seek}}
+\index{remix\_\-seek@{remix\_\-seek}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-seek}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-seek (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base, }
+\item[{{\bf RemixCount}}]{ offset, }
+\item[{int}]{ whence}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a75841ec771c78a75020efd305c296a59}
+\index{remix.h@{remix.h}!remix\_\-set\_\-channels@{remix\_\-set\_\-channels}}
+\index{remix\_\-set\_\-channels@{remix\_\-set\_\-channels}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-set\_\-channels}]{\setlength{\rightskip}{0pt plus 5cm}CDSet$\ast$ remix\_\-set\_\-channels (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{CDSet $\ast$}]{ channelset}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a5657ea3c688886b154c26e9e1d7503e3}
+\index{remix.h@{remix.h}!remix\_\-set\_\-mixlength@{remix\_\-set\_\-mixlength}}
+\index{remix\_\-set\_\-mixlength@{remix\_\-set\_\-mixlength}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-set\_\-mixlength}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-set\_\-mixlength (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixCount}}]{ mixlength}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ab18d7a9b5a9ff2a5bebc86039c9731ba}
+\index{remix.h@{remix.h}!remix\_\-set\_\-name@{remix\_\-set\_\-name}}
+\index{remix\_\-set\_\-name@{remix\_\-set\_\-name}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-set\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-set\_\-name (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base, }
+\item[{char $\ast$}]{ name}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a531253a578475e225ad799f0f8267f64}
+\index{remix.h@{remix.h}!remix\_\-set\_\-parameter@{remix\_\-set\_\-parameter}}
+\index{remix\_\-set\_\-parameter@{remix\_\-set\_\-parameter}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-set\_\-parameter}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixParameter} remix\_\-set\_\-parameter (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base, }
+\item[{int}]{ key, }
+\item[{{\bf RemixParameter}}]{ parameter}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a308832cfc13b1cb16765807d437932dc}
+\index{remix.h@{remix.h}!remix\_\-set\_\-samplerate@{remix\_\-set\_\-samplerate}}
+\index{remix\_\-set\_\-samplerate@{remix\_\-set\_\-samplerate}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-set\_\-samplerate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixSamplerate} remix\_\-set\_\-samplerate (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixSamplerate}}]{ samplerate}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a7c907d4eec6827c0f4bc3e3554f41f9e}
+\index{remix.h@{remix.h}!remix\_\-set\_\-tempo@{remix\_\-set\_\-tempo}}
+\index{remix\_\-set\_\-tempo@{remix\_\-set\_\-tempo}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-set\_\-tempo}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixTempo} remix\_\-set\_\-tempo (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixTempo}}]{ tempo}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a2b9bf91cca6e768bfbd810fae4323637}
+\index{remix.h@{remix.h}!remix\_\-squaretone\_\-get\_\-frequency@{remix\_\-squaretone\_\-get\_\-frequency}}
+\index{remix\_\-squaretone\_\-get\_\-frequency@{remix\_\-squaretone\_\-get\_\-frequency}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-squaretone\_\-get\_\-frequency}]{\setlength{\rightskip}{0pt plus 5cm}float remix\_\-squaretone\_\-get\_\-frequency (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ squaretone}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ae295ef9004a1f6441d001feed9d09e30}
+\index{remix.h@{remix.h}!remix\_\-squaretone\_\-new@{remix\_\-squaretone\_\-new}}
+\index{remix\_\-squaretone\_\-new@{remix\_\-squaretone\_\-new}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-squaretone\_\-new}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixBase}$\ast$ remix\_\-squaretone\_\-new (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{float}]{ frequency}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a924db29f3b79c8ecc58e28066f95f90d}
+\index{remix.h@{remix.h}!remix\_\-squaretone\_\-set\_\-frequency@{remix\_\-squaretone\_\-set\_\-frequency}}
+\index{remix\_\-squaretone\_\-set\_\-frequency@{remix\_\-squaretone\_\-set\_\-frequency}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-squaretone\_\-set\_\-frequency}]{\setlength{\rightskip}{0pt plus 5cm}float remix\_\-squaretone\_\-set\_\-frequency (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ squaretone, }
+\item[{float}]{ frequency}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a93e4f798b4e7cef11fca21fbb629e42f}
+\index{remix.h@{remix.h}!remix\_\-suggest@{remix\_\-suggest}}
+\index{remix\_\-suggest@{remix\_\-suggest}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-suggest}]{\setlength{\rightskip}{0pt plus 5cm}CDSet$\ast$ remix\_\-suggest (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixPlugin} $\ast$}]{ plugin, }
+\item[{CDSet $\ast$}]{ parameters}
+\end{DoxyParamCaption}
+)}\label{remix_8h_ae6f3b7619532a729c2c22026c58de47b}
+\index{remix.h@{remix.h}!remix\_\-tell@{remix\_\-tell}}
+\index{remix\_\-tell@{remix\_\-tell}!remix.h@{remix.h}}
+\subsubsection[{remix\_\-tell}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RemixCount} remix\_\-tell (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixBase} $\ast$}]{ base}
+\end{DoxyParamCaption}
+)}\label{remix_8h_a7c8f866b78f0534d2444ac783f8a7c3b}
+
+
+\subsection{Variable Documentation}
+\index{remix.h@{remix.h}!REMIX\_\-MONO@{REMIX\_\-MONO}}
+\index{REMIX\_\-MONO@{REMIX\_\-MONO}!remix.h@{remix.h}}
+\subsubsection[{REMIX\_\-MONO}]{\setlength{\rightskip}{0pt plus 5cm}CDSet$\ast$ {\bf REMIX\_\-MONO}}\label{remix_8h_a39b0c0faf50aceef158c8d8fe2289c1d}
+\index{remix.h@{remix.h}!REMIX\_\-STEREO@{REMIX\_\-STEREO}}
+\index{REMIX\_\-STEREO@{REMIX\_\-STEREO}!remix.h@{remix.h}}
+\subsubsection[{REMIX\_\-STEREO}]{\setlength{\rightskip}{0pt plus 5cm}CDSet$\ast$ {\bf REMIX\_\-STEREO}}\label{remix_8h_a5c5e382fd76845a9ecd5f26c5c249f81}

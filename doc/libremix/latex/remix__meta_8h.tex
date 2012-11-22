@@ -1,0 +1,143 @@
+\section{remix\_\-meta.h File Reference}
+\label{remix__meta_8h}\index{remix\_\-meta.h@{remix\_\-meta.h}}
+
+
+Metadata for RemixBase objects.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-get\_\-identifier} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-set\_\-identifier} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt, char $\ast$identifier)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-get\_\-category} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-set\_\-category} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt, char $\ast$category)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-get\_\-description} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-set\_\-description} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt, char $\ast$description)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-get\_\-copyright} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-set\_\-copyright} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt, char $\ast$copyright)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-get\_\-url} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt)
+\item 
+char $\ast$ {\bf remix\_\-meta\_\-text\_\-set\_\-url} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt, char $\ast$url)
+\item 
+CDList $\ast$ {\bf remix\_\-meta\_\-text\_\-get\_\-authors} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt)
+\item 
+void {\bf remix\_\-meta\_\-text\_\-add\_\-author} ({\bf RemixEnv} $\ast$env, {\bf RemixMetaText} $\ast$mt, char $\ast$name, char $\ast$email)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Metadata for RemixBase objects. 
+
+\subsection{Function Documentation}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-add\_\-author@{remix\_\-meta\_\-text\_\-add\_\-author}}
+\index{remix\_\-meta\_\-text\_\-add\_\-author@{remix\_\-meta\_\-text\_\-add\_\-author}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-add\_\-author}]{\setlength{\rightskip}{0pt plus 5cm}void remix\_\-meta\_\-text\_\-add\_\-author (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt, }
+\item[{char $\ast$}]{ name, }
+\item[{char $\ast$}]{ email}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a959bd4e6a1c9b49e3c17ad771dedef99}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-get\_\-authors@{remix\_\-meta\_\-text\_\-get\_\-authors}}
+\index{remix\_\-meta\_\-text\_\-get\_\-authors@{remix\_\-meta\_\-text\_\-get\_\-authors}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-get\_\-authors}]{\setlength{\rightskip}{0pt plus 5cm}CDList$\ast$ remix\_\-meta\_\-text\_\-get\_\-authors (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a8a496a70e127ea5ff6eafd961886e4e3}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-get\_\-category@{remix\_\-meta\_\-text\_\-get\_\-category}}
+\index{remix\_\-meta\_\-text\_\-get\_\-category@{remix\_\-meta\_\-text\_\-get\_\-category}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-get\_\-category}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-get\_\-category (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a643ac34e45c051d845af3a800917d8ab}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-get\_\-copyright@{remix\_\-meta\_\-text\_\-get\_\-copyright}}
+\index{remix\_\-meta\_\-text\_\-get\_\-copyright@{remix\_\-meta\_\-text\_\-get\_\-copyright}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-get\_\-copyright}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-get\_\-copyright (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a0c1efc53082875d2ed5a89f1a3a5fedc}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-get\_\-description@{remix\_\-meta\_\-text\_\-get\_\-description}}
+\index{remix\_\-meta\_\-text\_\-get\_\-description@{remix\_\-meta\_\-text\_\-get\_\-description}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-get\_\-description}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-get\_\-description (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a9fc267afdae95d815d29373fdbc2c5d8}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-get\_\-identifier@{remix\_\-meta\_\-text\_\-get\_\-identifier}}
+\index{remix\_\-meta\_\-text\_\-get\_\-identifier@{remix\_\-meta\_\-text\_\-get\_\-identifier}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-get\_\-identifier}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-get\_\-identifier (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a707ec572ec8dca6e594822d3c949b210}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-get\_\-url@{remix\_\-meta\_\-text\_\-get\_\-url}}
+\index{remix\_\-meta\_\-text\_\-get\_\-url@{remix\_\-meta\_\-text\_\-get\_\-url}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-get\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-get\_\-url (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a835a4422f4cfd9a576676aebc39d3bb2}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-set\_\-category@{remix\_\-meta\_\-text\_\-set\_\-category}}
+\index{remix\_\-meta\_\-text\_\-set\_\-category@{remix\_\-meta\_\-text\_\-set\_\-category}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-set\_\-category}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-set\_\-category (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt, }
+\item[{char $\ast$}]{ category}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a3654bed8d55a46945f9f4739d1d36533}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-set\_\-copyright@{remix\_\-meta\_\-text\_\-set\_\-copyright}}
+\index{remix\_\-meta\_\-text\_\-set\_\-copyright@{remix\_\-meta\_\-text\_\-set\_\-copyright}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-set\_\-copyright}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-set\_\-copyright (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt, }
+\item[{char $\ast$}]{ copyright}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_aed1fb5fc350648750291d141ca1cecde}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-set\_\-description@{remix\_\-meta\_\-text\_\-set\_\-description}}
+\index{remix\_\-meta\_\-text\_\-set\_\-description@{remix\_\-meta\_\-text\_\-set\_\-description}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-set\_\-description}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-set\_\-description (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt, }
+\item[{char $\ast$}]{ description}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a11ba72cf5af48875ba65addd98b50d42}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-set\_\-identifier@{remix\_\-meta\_\-text\_\-set\_\-identifier}}
+\index{remix\_\-meta\_\-text\_\-set\_\-identifier@{remix\_\-meta\_\-text\_\-set\_\-identifier}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-set\_\-identifier}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-set\_\-identifier (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt, }
+\item[{char $\ast$}]{ identifier}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a6dffb03a7bfd9226098e4d9e5d5f273f}
+\index{remix\_\-meta.h@{remix\_\-meta.h}!remix\_\-meta\_\-text\_\-set\_\-url@{remix\_\-meta\_\-text\_\-set\_\-url}}
+\index{remix\_\-meta\_\-text\_\-set\_\-url@{remix\_\-meta\_\-text\_\-set\_\-url}!remix_meta.h@{remix\_\-meta.h}}
+\subsubsection[{remix\_\-meta\_\-text\_\-set\_\-url}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ remix\_\-meta\_\-text\_\-set\_\-url (
+\begin{DoxyParamCaption}
+\item[{{\bf RemixEnv} $\ast$}]{ env, }
+\item[{{\bf RemixMetaText} $\ast$}]{ mt, }
+\item[{char $\ast$}]{ url}
+\end{DoxyParamCaption}
+)}\label{remix__meta_8h_a177788e4c13221ca0120e88b4e894e3b}
