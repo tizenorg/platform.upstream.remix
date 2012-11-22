@@ -1,33 +1,33 @@
-Name:       remix
-Summary:    An audio sequencing and mixing library
-Version:    0.2.4
-Release:    1
-Group:      Libraries/Sound
-License:    LGPLv2.1
-URL:        http://www.metadecks.org/software/remix/
-Source0:    %{name}-%{version}.tar.gz
-BuildRequires: libsndfile-devel
+Name:           remix
+Version:        0.2.4
+Release:        1
+License:        LGPL-2.1
+Summary:        An audio sequencing and mixing library
+Url:            http://www.metadecks.org/software/remix/
+Group:          Libraries/Sound
+Source0:        %{name}-%{version}.tar.gz
+BuildRequires:  libsndfile-devel
 
 %description
 Remix is an audio sequencing and mixing library that provides a multichannel,
 sparse audio data container (streams), a structured mixing abstraction (decks),
-and widely useful means of generating control data (via envelopes) and of 
+and widely useful means of generating control data (via envelopes) and of
 caching audio data.
 
 %package -n libremix
-Summary: An audio sequencing and mixing library
-Group: Libraries
+Summary:        An audio sequencing and mixing library
+Group:          Libraries
 
 %description -n libremix
 Remix is an audio sequencing and mixing library that provides a multichannel,
 sparse audio data container (streams), a structured mixing abstraction (decks),
-and widely useful means of generating control data (via envelopes) and of 
+and widely useful means of generating control data (via envelopes) and of
 caching audio data.
 
 %package -n libremix-devel
-Summary: Libraries, includes, etc to develop remix applications
-Group: Libraries
-Requires:  lib%{name} = %{version}-%{release}
+Summary:        Libraries, includes, etc to develop remix applications
+Group:          Libraries
+Requires:       lib%{name} = %{version}
 
 %description -n libremix-devel
 Libraries, include files, etc you can use to develop remix applications.
@@ -36,8 +36,8 @@ Libraries, include files, etc you can use to develop remix applications.
 %setup -q
 
 %build
-%configure --prefix=%{prefix}
-make %{?jobs:-j%jobs}
+%configure
+make %{?_smp_mflags}
 
 %install
 %make_install
