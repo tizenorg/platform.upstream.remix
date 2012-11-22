@@ -114,7 +114,7 @@ init_dynamic_plugins_dir (RemixEnv * env, char * dirname)
 
     remix_dprintf ("[init_dynamic_plugins_dir] trying %s ... ", name);
     snprintf (buf, BUFLEN, "%s/%s", dirname, name);
-      
+
     if (stat (buf, &statbuf) == -1) {
       remix_set_error (env, REMIX_ERROR_SYSTEM);
     } else if (remix_stat_regular (statbuf.st_mode)) {

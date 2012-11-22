@@ -61,7 +61,7 @@ remix_envelope_debug (RemixEnv * env, RemixEnvelope * envelope)
       printf ("*** unknown envelope->timetype ***\n");
       break;
     }
-  } 
+  }
 #endif
 }
 
@@ -350,7 +350,7 @@ remix_envelope_linear_write_chunk (RemixEnv * env, RemixChunk * chunk,
                           REMIX_TIME_SAMPLES);
   px = t.samples;
   py = point->value;
-  
+
   next_point = (RemixPoint *)nl->data.s_pointer;
   t = remix_time_convert (env, next_point->time, envelope->timetype,
                           REMIX_TIME_SAMPLES);
@@ -365,19 +365,19 @@ remix_envelope_linear_write_chunk (RemixEnv * env, RemixChunk * chunk,
       n = MIN (remaining, npx - pos);
     }
     gradient = (npy - py) / (RemixPCM)(npx - px);
-    
+
     d = &chunk->data[offset];
     /*  _remix_pcm_write_linear (d, px - chunk->start_index, py, gradient, n);*/
     n = _remix_pcm_write_linear (d, px, py, npx, npy, pos, n);
-    
+
     remaining -= n;
     written += n;
     pos += n;
     offset += n;
-    
+
     if (remaining > 0) {
       l = nl; point = next_point; px = npx; py = npy;
-      
+
       nl = nl->next;
       next_point = (RemixPoint *)nl->data.s_pointer;
       t = remix_time_convert (env, next_point->time, envelope->timetype,

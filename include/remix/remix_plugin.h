@@ -312,7 +312,7 @@ RemixCount _remix_pcm_mult (RemixPCM * src, RemixPCM * dest, RemixCount count,
 			    void * unused);
 RemixCount _remix_pcm_fade (RemixPCM * src, RemixPCM * dest, RemixCount count,
 			    void * unused);
-RemixCount _remix_pcm_interleave_2 (RemixPCM * src1, RemixPCM * src2, 
+RemixCount _remix_pcm_interleave_2 (RemixPCM * src1, RemixPCM * src2,
 				    RemixCount count, void * data);
 RemixCount _remix_pcm_deinterleave_2 (RemixPCM * dest1, RemixPCM * dest2,
 				      RemixCount count, void * data);

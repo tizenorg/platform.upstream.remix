@@ -171,7 +171,7 @@ remix_squaretone_write_chunk (RemixEnv * env, RemixChunk * chunk,
 
   remix_dprintf ("[remix_squaretone_write_chunk] wavelength %ld, cycle_offset %ld\n",
                  wavelength, sqch->_cycle_offset);
-  
+
   if (sqch->_cycle_offset < wavelength/2) {
     n = MIN (remaining, wavelength/2 - sqch->_cycle_offset);
     value = 1.0;

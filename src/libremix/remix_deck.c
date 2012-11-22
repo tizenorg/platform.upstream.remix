@@ -143,7 +143,7 @@ remix_deck_length (RemixEnv * env, RemixBase * base)
   RemixCount length, maxlength = 0;
   CDList * l;
   RemixBase * track;
-  
+
   for (l = deck->tracks; l; l = l->next) {
     track = (RemixBase *)l->data.s_pointer;
     length = remix_length (env, track);
@@ -239,14 +239,14 @@ remix_deck_process (RemixEnv * env, RemixBase * base, RemixCount count,
 
     for (l = l->next; l; l = l->next) {
       track = (RemixTrack *)l->data.s_pointer;
-      
+
       remix_seek (env, (RemixBase *)input, input_offset, SEEK_SET);
       remix_seek (env, (RemixBase *)mixstream, 0, SEEK_SET);
       n = remix_process (env, (RemixBase *)track, n, input, mixstream);
-      
+
       remix_seek (env, (RemixBase *)mixstream, 0, SEEK_SET);
       n = remix_stream_gain (env, mixstream, n, track->gain);
-      
+
       remix_seek (env, (RemixBase *)mixstream, 0, SEEK_SET);
       remix_seek (env, (RemixBase *)output, output_offset, SEEK_SET);
       n = remix_stream_mix (env, mixstream, output, n);

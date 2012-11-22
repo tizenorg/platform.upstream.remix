@@ -172,22 +172,22 @@ remix_sndfile_read_into_chunk (RemixEnv * env, RemixChunk * chunk,
     remix_sndfile_read_update (env, sndfile, n);
 
   n = MIN (si->pcm_n, remaining);
-  
+
   p = si->pcm;
   p += channelname;
-  
+
   for (i = 0; i < n; i++) {
     *d++ = *p;
     p += si->info.channels;
   }
-    
+
   if (n == 0) { /* EOF */
     n = _remix_pcm_set (d, 0.0, remaining);
   }
-  
+
   remaining -= n;
   written += n;
-  
+
 #if 0 /* mono only */
   d = &chunk->data[offset];
 
@@ -293,7 +293,7 @@ static struct _RemixMethods _remix_sndfile_writer_methods = {
   remix_sndfile_length,
   remix_sndfile_seek,
   NULL, /* flush */
-};  
+};
 
 static RemixBase *
 remix_sndfile_optimise (RemixEnv * env, RemixBase * sndfile)

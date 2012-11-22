@@ -296,7 +296,7 @@ remix_layer_get_sound_item_before (RemixEnv * env, RemixLayer * layer, RemixTime
     if (_remix_time_gt (layer->timetype, s->start_time, time)) return lp;
     lp = l;
   }
-  
+
   return lp;
 }
 
@@ -535,13 +535,13 @@ remix_layer_process (RemixEnv * env, RemixBase * base, RemixCount count,
       sound = (RemixSound *)layer->_current_sound_item->data.s_pointer;
       t = remix_time_convert (env, sound->start_time, layer->timetype,
 			     REMIX_TIME_SAMPLES);
-      
+
       new_offset = t.samples + remix_tell (env, (RemixBase *)sound);
     }
 #else
     new_offset = layer->_current_offset * tempo / layer->_current_tempo;
 #endif
-  
+
     remix_layer_seek (env, (RemixBase *)layer, new_offset);
     layer->_current_tempo = tempo;
 #else
@@ -650,4 +650,4 @@ remix_layer_optimise (RemixEnv * env, RemixLayer * layer)
   _remix_set_methods (env, layer, &_remix_layer_methods);
   return layer;
 }
-		  
+

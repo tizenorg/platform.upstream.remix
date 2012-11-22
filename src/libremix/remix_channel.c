@@ -377,7 +377,7 @@ remix_channel_chunkchunkfuncify (RemixEnv * env, RemixChannel * src, RemixChanne
 	  return funced; /* Destination channel incomplete */
 	}
       }
- 
+
       du = (RemixChunk *)dest->_current_chunk->data.s_pointer;
 
       vl = remix_chunk_item_valid_length (dest->_current_chunk);
@@ -472,7 +472,7 @@ remix_channel_chunkchunkchunkfuncify (RemixEnv * env,
       src1->_current_offset += n;
       src2->_current_offset += n;
     }
-    
+
     if (remaining > 0) {
       if (n > 0) {
 	dest->_current_chunk =
@@ -480,9 +480,9 @@ remix_channel_chunkchunkchunkfuncify (RemixEnv * env,
 	if (dest->_current_chunk == RemixNone)
           return funced; /* Destination channel incomplete */
       }
-      
+
       du = (RemixChunk *)dest->_current_chunk->data.s_pointer;
-      
+
       vl = remix_chunk_item_valid_length (dest->_current_chunk);
       n = func (env, s1u, src1->_current_offset, s2u, src2->_current_offset,
 		du, dest->_current_offset, MIN(remaining, vl), channelname,

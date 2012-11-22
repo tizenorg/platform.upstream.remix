@@ -144,9 +144,9 @@ static RemixBase *
 remix_monitor_init (RemixEnv * env, RemixBase * base)
 {
   RemixMonitor * monitor = (RemixMonitor *)base;
-  
+
   monitor->dev_dsp_fd = -1;
-  
+
   monitor->dev_dsp_fd = open (FILENAME, O_WRONLY, 0);
   if (monitor->dev_dsp_fd == -1) {
     printf ("Couldn't open any output device.\n");
@@ -183,7 +183,7 @@ static int
 remix_monitor_destroy (RemixEnv * env, RemixBase * base)
 {
   RemixMonitor * monitor = (RemixMonitor *)base;
-  
+
   if (monitor->dev_dsp_fd != -1) {
     close (monitor->dev_dsp_fd);
   }
@@ -237,12 +237,12 @@ remix_monitor_write_short (RemixEnv * env, RemixMonitor * monitor, RemixCount co
     return -1;
   }
 #endif
-  
+
   n = write (monitor->dev_dsp_fd, monitor->playbuffer, count * sizeof(short));
   if (n == -1) {
     printf ("####### system error writing to fd %d #######\n",
 	    monitor->dev_dsp_fd);
-    
+
     remix_set_error (env, REMIX_ERROR_SYSTEM);
     return -1;
   }
@@ -264,7 +264,7 @@ remix_monitor_playbuffer (RemixEnv * env, RemixMonitor * monitor, RemixPCM * dat
   }
 
   count = remix_monitor_write_short (env, monitor, count);
-  
+
   return count;
 }
 
@@ -276,7 +276,7 @@ remix_monitor_chunk (RemixEnv * env, RemixChunk * chunk, RemixCount offset,
   RemixMonitor * monitor = (RemixMonitor *)data;
   RemixCount remaining = count, written = 0, n, playcount;
   RemixPCM * d;
- 
+
   if (monitor->dev_dsp_fd == -1) {
     remix_dprintf ("[remix_monitor_chunk] no file\n");
     remix_set_error (env, REMIX_ERROR_NOENTITY); /* XXX: different error ? */
@@ -299,7 +299,7 @@ remix_monitor_chunk (RemixEnv * env, RemixChunk * chunk, RemixCount offset,
 
     offset += n;
     written += n;
-    remaining -= n;      
+    remaining -= n;
   }
 
   return written;

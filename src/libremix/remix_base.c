@@ -489,7 +489,7 @@ remix_length (RemixEnv * env, RemixBase * base)
     return -1;
   }
   return _remix_length (env, base);
-}  
+}
 
 RemixCount
 remix_seek (RemixEnv * env, RemixBase * base, RemixCount offset, int whence)

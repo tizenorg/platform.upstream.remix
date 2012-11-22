@@ -130,7 +130,7 @@ cd_list_append (void * ctx, CDList * list, CDScalar data)
 
   last = cd_list_last_item (ctx, list);
   if (last) last->next = l;
-  l->prev = last; 
+  l->prev = last;
   return list;
 }
 
@@ -151,7 +151,7 @@ cd_list_add_before_item (void * ctx, CDList * list, CDScalar data,
   l->next = item;
   if (p) p->next = l;
   item->prev = l;
-  
+
   return list;
 }
 

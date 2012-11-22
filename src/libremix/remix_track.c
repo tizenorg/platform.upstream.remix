@@ -293,15 +293,15 @@ remix_track_process (RemixEnv * env, RemixBase * base, RemixCount count,
 	swap_stream = si;
 	remix_seek (env, (RemixBase *)si, 0, SEEK_SET);
       }
-      
+
       if (l->next == RemixNone) {
 	so = output;
       } else {
 	remix_seek (env, (RemixBase *)so, 0, SEEK_SET);
       }
-      
+
       n = remix_process (env, layer, n, si, so);
-      
+
       l = l->next;
 
       /* swap si, st using swap_stream as evaluated above */
@@ -335,7 +335,7 @@ remix_track_twolayer_process (RemixEnv * env, RemixBase * base,
   l = track->layers;
   layer1 = (RemixBase *)l->data.s_pointer;
   remix_seek (env, (RemixBase *)layer1, current_offset, SEEK_SET);
-  
+
   l = l->next;
   layer2 = (RemixBase *)l->data.s_pointer;
   remix_seek (env, (RemixBase *)layer2, current_offset, SEEK_SET);

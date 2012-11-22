@@ -291,7 +291,6 @@ _remix_chunk_add_inplace (RemixEnv * env,
 {
   return _remix_ppfunc_apply (env, _remix_pcm_add, src, src_offset,
 			   dest, dest_offset, count, NULL);
-			   
 }
 
 /*

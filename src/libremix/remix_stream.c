@@ -194,7 +194,7 @@ remix_stream_remove_channel (RemixEnv * env, RemixStream * stream, int name)
     remix_set_error (env, REMIX_ERROR_NOENTITY);
     return RemixNone;
   }
-   
+
   stream->channels = cd_set_remove (env, stream->channels, name);
 
   return stream;
@@ -238,7 +238,7 @@ remix_stream_write0 (RemixEnv * env, RemixStream * stream, RemixCount count)
     channel = (RemixChannel *)s->data.s_pointer;
     remix_channel_write0 (env, channel, count);
   }
-  
+
   remix_seek (env, (RemixBase *)stream, offset + count, SEEK_SET);
 
   remix_dprintf ("[remix_stream_write0] (%p) written %ld\n", stream, count);

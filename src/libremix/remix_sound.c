@@ -224,7 +224,7 @@ remix_sound_move (RemixEnv * env, RemixSound * sound, RemixTime start_time)
     return old;
   } else {
     return _remix_time_invalid (sound->layer->timetype);
-  } 
+  }
 }
 
 RemixSound *
@@ -510,14 +510,14 @@ remix_sound_process (RemixEnv * env, RemixBase * base, RemixCount count,
 	n = m;
       }
     }
-    
+
     /* Blend input back in */
     if (sound->blend_envelope != RemixNone) {
       remix_seek (env, (RemixBase *)input, input_offset, SEEK_SET);
       remix_seek (env, (RemixBase *)output, output_offset, SEEK_SET);
       n = _remix_sound_blend (env, sound, n, input, output);
     }
-    
+
     offset += n;
     processed += n;
     remaining -= n;
