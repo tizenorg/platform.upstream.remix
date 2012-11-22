@@ -4,7 +4,7 @@ AM_CFLAGS = -Wall -pedantic
 
 INCLUDES = -I$(top_srcdir)/include -I$(top_srcdir)/src/ctxdata
 
-REMIX_LIBS = ../ctxdata/libctxdata.la ../libremix/libremix.la -ldl
+REMIX_LIBS = ../ctxdata/libctxdata.la ../libremix/libremix.la ../ctxdata/libctxdata.la -ldl
 
 # Test programs
 

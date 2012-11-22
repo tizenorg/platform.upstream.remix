@@ -7,6 +7,7 @@ Url:            http://www.metadecks.org/software/remix/
 Group:          Libraries/Sound
 Source0:        %{name}-%{version}.tar.gz
 BuildRequires:  libsndfile-devel
+BuildRequires:  autoconf, automake, libtool
 
 %description
 Remix is an audio sequencing and mixing library that provides a multichannel,
@@ -36,7 +37,7 @@ Libraries, include files, etc you can use to develop remix applications.
 %setup -q
 
 %build
-%configure
+%reconfigure
 make %{?_smp_mflags}
 
 %install
