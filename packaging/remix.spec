@@ -55,6 +55,8 @@ cp %{_builddir}/%{buildsubdir}/COPYING %{buildroot}/usr/share/license/%{name}
 %doc COPYING
 %{_libdir}/libremix.so.*
 %{_libdir}/libctxdata.so.*
+/usr/lib/remix/libremix_ladspa*
+/usr/lib/remix/libremix_noise*
 /usr/share/license/%{name}
 
 %files -n libremix-devel
@@ -62,7 +64,5 @@ cp %{_builddir}/%{buildsubdir}/COPYING %{buildroot}/usr/share/license/%{name}
 %{_libdir}/libremix.so
 %{_libdir}/libctxdata.so
 %{_libdir}/pkgconfig/*.pc
-%{_libdir}/remix/libremix_ladspa*
-%{_libdir}/remix/libremix_noise*
 %{_includedir}/ctxdata.h
 %{_includedir}/remix/*.h
