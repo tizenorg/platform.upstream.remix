@@ -45,6 +45,8 @@ make %{?_smp_mflags}
 mkdir -p %{buildroot}/usr/share/license
 cp %{_builddir}/%{buildsubdir}/COPYING %{buildroot}/usr/share/license/%{name}
 
+%remove_docs
+
 %post -n libremix -p /sbin/ldconfig
 
 %postun -n libremix -p /sbin/ldconfig
