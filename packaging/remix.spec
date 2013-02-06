@@ -6,8 +6,10 @@ Summary:        An audio sequencing and mixing library
 Url:            http://www.metadecks.org/software/remix/
 Group:          Libraries/Sound
 Source0:        %{name}-%{version}.tar.gz
-BuildRequires:  libsndfile-devel
-BuildRequires:  autoconf, automake, libtool
+BuildRequires:  autoconf
+BuildRequires:  automake
+BuildRequires:  libtool
+BuildRequires:  pkgconfig(sndfile)
 
 %description
 Remix is an audio sequencing and mixing library that provides a multichannel,
@@ -42,9 +44,6 @@ make %{?_smp_mflags}
 
 %install
 %make_install
-mkdir -p %{buildroot}/usr/share/license
-cp %{_builddir}/%{buildsubdir}/COPYING %{buildroot}/usr/share/license/%{name}
-
 %remove_docs
 
 %post -n libremix -p /sbin/ldconfig
@@ -52,14 +51,12 @@ cp %{_builddir}/%{buildsubdir}/COPYING %{buildroot}/usr/share/license/%{name}
 %postun -n libremix -p /sbin/ldconfig
 
 %files  -n libremix
-%manifest %{name}.manifest
 %defattr(-,root,root,-)
-%doc COPYING
+%license COPYING
 %{_libdir}/libremix.so.*
 %{_libdir}/libctxdata.so.*
-/usr/lib/remix/libremix_ladspa*
-/usr/lib/remix/libremix_noise*
-/usr/share/license/%{name}
+%{_prefix}/lib/remix/libremix_ladspa*
+%{_prefix}/lib/remix/libremix_noise*
 
 %files -n libremix-devel
 %defattr(-,root,root,-)
