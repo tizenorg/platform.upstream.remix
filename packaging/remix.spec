@@ -7,6 +7,7 @@ Summary:        An audio sequencing and mixing library
 Url:            http://www.metadecks.org/software/remix/
 Group:          Multimedia/Audio
 Source0:        %{name}-%{version}.tar.gz
+Source1001: 	remix.manifest
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  libtool
@@ -38,6 +39,7 @@ Libraries, include files, etc you can use to develop remix applications.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %reconfigure
@@ -52,6 +54,7 @@ make %{?_smp_mflags}
 %postun -n libremix -p /sbin/ldconfig
 
 %files  -n libremix
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %license COPYING
 %{_libdir}/libremix.so.*
@@ -61,6 +64,7 @@ make %{?_smp_mflags}
 %{_prefix}/lib/remix/libremix_noise*
 
 %files  devel
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %{_libdir}/libremix.so
 %{_libdir}/libctxdata.so
